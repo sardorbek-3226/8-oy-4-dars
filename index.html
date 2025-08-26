@@ -2,12 +2,76 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Todo App</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+  <body class="min-h-screen bg-gray-900 flex flex-col items-center">
+
+    <div
+      class="h-[300px] w-full bg-cover bg-center"
+      style="background-image: url('/bg-desktop-dark.jpg');"
+    >
+    </div>
+
+    <div class="w-full max-w-xl px-4 -mt-50 relative z-10">
+      <header class="flex justify-between items-center">
+        <h1 class="text-white text-3xl font-bold tracking-[0.5em]">TODO</h1>
+        <button class="text-white text-2xl">
+          <i class="fa-regular fa-sun"></i>
+        </button>
+      </header>
+
+      <div class="w-full mt-10 relative">
+        <input
+          id="todo-input"
+          type="text"
+          placeholder="Create a new todo.."
+          class="w-full rounded-md bg-gray-900 text-white py-3 px-12 outline-none"
+        />
+        <i
+          class="fa-solid fa-magnifying-glass absolute top-4 text-xl text-white left-3"
+        ></i>
+        <button
+          id="add-btn"
+          class="py-1 px-5 bg-white/80 absolute top-2 right-6 italic rounded-md"
+        >
+          Add
+        </button>
+      </div>
+
+      <!-- Todo list -->
+      <div
+        class="w-full mt-6 bg-gray-900 rounded-md shadow-lg overflow-hidden"
+      >
+        <ul id="todo-list" class="divide-y divide-gray-700 text-gray-300">
+          <!-- todo itemlar shu yerga qo‘shiladi -->
+        </ul>
+
+        <!-- Footer -->
+        <div
+          class="flex justify-between items-center px-4 py-3 text-sm text-gray-500"
+        >
+          <span id="items-left">0 items left</span>
+          <div class="flex gap-4">
+            <button id="filter-all" class="text-purple-400">All</button>
+            <button id="filter-active">Active</button>
+            <button id="filter-completed">Completed</button>
+          </div>
+          <button id="clear-completed">Clear Completed</button>
+        </div>
+      </div>
+
+      <p class="mt-6 text-gray-400 text-sm text-center">
+        Drag and drop to reorder list
+      </p>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
