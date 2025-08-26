@@ -39,7 +39,6 @@ function renderTodos() {
   const left = todos.filter(t => !t.completed).length;
   itemsLeftEl.textContent = `${left} items left`;
 
-  // aktiv tugmaga rang beramiz
   filterAllBtn.classList.remove("text-purple-400");
   filterActiveBtn.classList.remove("text-purple-400");
   filterCompletedBtn.classList.remove("text-purple-400");
@@ -49,7 +48,6 @@ function renderTodos() {
   if (currentFilter === "completed") filterCompletedBtn.classList.add("text-purple-400");
 }
 
-// Todo qo‘shish
 addBtn.addEventListener("click", () => {
   if (inputEl.value.trim() !== "") {
     todos.push({ text: inputEl.value.trim(), completed: false });
@@ -58,14 +56,12 @@ addBtn.addEventListener("click", () => {
   }
 });
 
-// "Enter" bosilganda ham ishlashi uchun
 inputEl.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     addBtn.click();
   }
 });
 
-// Filter tugmalari
 filterAllBtn.addEventListener("click", () => {
   currentFilter = "all";
   renderTodos();
@@ -79,7 +75,6 @@ filterCompletedBtn.addEventListener("click", () => {
   renderTodos();
 });
 
-// Clear Completed
 document.getElementById("clear-completed")?.addEventListener("click", () => {
   todos = todos.filter(t => !t.completed);
   renderTodos();
